@@ -1,0 +1,53 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        customer-analytic-person: # User defined 
+          producer:
+            useNativeEncoding: true
+          content-type: application/*+avro
+      kafka:
+        binder:
+          producer-properties:
+            bootstrap.servers: ${KAFKA_SERVERS}
+            security.protocol: SASL_SSL
+            sasl.mechanism: PLAIN
+            sasl.jaas.config: >-
+              org.apache.kafka.common.security.plain.PlainLoginModule required
+              username="${KAFKA_BROKER_API_KEY}"
+              password="${KAFKA_BROKER_API_SECRET}";
+            key.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry:
+              url: ${SR_URL}
+              basic.auth.credentials.source: USER_INFO
+              basic.auth.user.info: ${SR_API_KEY}:${SR_API_SECRET}
+          consumer-properties:
+            bootstrap.servers: ${KAFKA_SERVERS}
+            security.protocol: SASL_SSL
+            sasl.mechanism: PLAIN
+            sasl.jaas.config: >-
+              org.apache.kafka.common.security.plain.PlainLoginModule required
+              username="${KAFKA_BROKER_API_KEY}"
+              password="${KAFKA_BROKER_API_SECRET}";
+            auto.offset.reset: earliest
+            schema.registry:
+              url: ${SR_URL}
+              basic.auth.credentials.source: USER_INFO
+              basic.auth.user.info: ${SR_API_KEY}:${SR_API_SECRET}
+            key.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            value.deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+            specific.avro.reader: true
+          brokers: ${KAFKA_SERVERS}
+          configuration:
+            schema-registry:
+              url: ${SR_URL}
+              basic.auth.credentials.source: USER_INFO
+              basic.auth.user.info: ${SR_API_KEY}:${SR_API_SECRET}
+            security.protocol: SASL_SSL
+            sasl.mechanism: PLAIN
+            sasl.jaas.config: >-
+              org.apache.kafka.common.security.plain.PlainLoginModule required
+              username="${KAFKA_BROKER_API_KEY}"
+              password="${KAFKA_BROKER_API_SECRET}";
+

@@ -1,0 +1,79 @@
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.example",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "totalSpent",
+      "type": "double"
+    },
+    {
+      "name": "becameCustomerOn",
+      "type": "long"
+    },
+    {
+      "name": "purchases",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Purchase",
+          "fields": [
+            {
+              "name": "id",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "type": "double"
+            },
+            {
+              "name": "price",
+              "type": "double"
+            },
+            {
+              "name": "email",
+              "type": "long"
+            },
+            {
+              "name": "products",
+              "type": {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "Product",
+                  "fields": [
+                    {
+                      "name": "sku",
+                      "type": "string"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "name": "purchasedAt",
+              "type": "long"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
