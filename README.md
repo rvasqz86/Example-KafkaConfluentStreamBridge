@@ -1,8 +1,22 @@
 # ApiKafka Project Documentation
 
 ## Project Overview
+Demo for using Spring, Kafka, Avro, and Confluent Schema Registry with flexible transformation layers.
 
 ApiKafka is a Java-based application that demonstrates integration between Spring Boot, Apache Kafka, and Avro schemas. The project showcases how to implement message publishing, consumption, and transformation in a microservices architecture.
+
+The multimodule is to demonstrate a pattern so that other transformation 
+layers can be added independently of the api.
+
+Team A: has a requirement to be notified when purchases are made so 
+customers as they define it can e updated. So they can build a library. CustomerTransform
+is the example. The main dev team provides the common module defining what is available via 
+repositories. team a will build with the interfaces and can define the own middleware. 
+Then publish.
+
+Dev team will import it in their project. Register the bean, add their topic to the configuration, and that is it. 
+ -  if they want more events to be publish they can add the @PublishOnReturn annotation to the method adding the functionality without adding more boilerplate or code.
+
 
 ## Technical Stack
 
@@ -40,7 +54,6 @@ This module handles data transformation between different formats:
 - **PurchaseToCustomerMapper**: Maps purchase data to customer model
 
 
-## Getting Started
 
 ### Prerequisites
 
