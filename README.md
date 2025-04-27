@@ -4,29 +4,10 @@
 
 ApiKafka is a Java-based application that demonstrates integration between Spring Boot, Apache Kafka, and Avro schemas. The project showcases how to implement message publishing, consumption, and transformation in a microservices architecture.
 
-## Architecture
-
-The project consists of multiple modules:
-
-1. **Api** - Main application module containing REST endpoints, Kafka configuration, and message publishing logic
-2. **CustomerTransform** - Module for transforming data between different formats
-
-## Key Features
-
-- REST API for data ingestion
-- Apache Kafka integration for message streaming
-- Custom annotation-based Kafka publishing
-- Dynamic topic publishing
-- Message transformation using Avro schemas
-- Consumer implementations for message processing
-
 ## Technical Stack
 
 - **Java 21** - Programming language
-- **Jakarta EE** - Enterprise specifications
 - **Spring Framework** - Primary application framework
-- **Spring MVC** - Web layer
-- **Spring Cloud Stream** - Messaging abstraction
 - **Apache Kafka** - Message broker
 - **Avro** - Data serialization format
 - **Confluent Schema Registry** - Schema management
@@ -58,13 +39,6 @@ This module handles data transformation between different formats:
 - **PersonToCustomerKafka**: Transforms person data to customer format
 - **PurchaseToCustomerMapper**: Maps purchase data to customer model
 
-## Configuration
-
-The application configuration is defined in `application.yml`, which includes:
-- Kafka broker settings
-- Schema registry configuration
-- Topic definitions
-- Consumer group settings
 
 ## Getting Started
 
