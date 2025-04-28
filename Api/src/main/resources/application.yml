@@ -1,10 +1,15 @@
 spring:
   cloud:
+    function:
+      definition: input
     stream:
       bindings:
-        customer-analytic-person: # User defined 
+        customer-analytic-person:
           producer:
             useNativeEncoding: true
+          content-type: application/*+avro
+        input-in-0:
+          destination: customer-analytic-person
           content-type: application/*+avro
       kafka:
         binder:

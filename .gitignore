@@ -34,3 +34,4 @@ build/
 ### VS Code ###
 .vscode/
 /Api/src/main/resources/application.prod.yml
+/Api/src/main/resources/application-prod.yml

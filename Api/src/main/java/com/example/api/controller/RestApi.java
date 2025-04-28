@@ -1,8 +1,8 @@
 package com.example.api.controller;
 
+import com.example.api.service.PersonService;
 import com.example.api.service.PurchaseService;
 import com.example.domain.Person;
-import com.example.api.service.PersonService;
 import com.example.domain.Purchase;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

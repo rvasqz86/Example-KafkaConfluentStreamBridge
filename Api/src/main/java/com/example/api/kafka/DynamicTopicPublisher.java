@@ -1,7 +1,6 @@
 package com.example.api.kafka;
 
 import org.apache.avro.generic.GenericData;
-import org.apache.avro.generic.GenericRecord;
 import org.apache.avro.generic.GenericRecordBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.function.StreamBridge;
@@ -23,7 +22,8 @@ public class DynamicTopicPublisher {
             }
             Message<GenericData.Record> message = MessageBuilder.withPayload(g.build())
                     .build();
-            streamBridge.send(topicName, message);
+            System.out.println("Publishing message to topic: " + topicName + " with payload: " + message);
+            streamBridge.send(topicName, payload);
         }
 
     }

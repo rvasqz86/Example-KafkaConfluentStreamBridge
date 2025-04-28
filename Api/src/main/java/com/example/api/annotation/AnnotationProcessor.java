@@ -2,7 +2,10 @@ package com.example.api.annotation;
 
 import com.example.api.kafka.DynamicTopicPublisher;
 import com.example.domain.Purchase;
-import com.example.tranformers.*;
+import com.example.tranformers.BaseTransformer;
+import com.example.tranformers.KafkaTransform;
+import com.example.tranformers.OnPurchaseTransform;
+import com.example.tranformers.TransformerType;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;

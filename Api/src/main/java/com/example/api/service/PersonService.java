@@ -1,7 +1,7 @@
 package com.example.api.service;
 
-import com.example.domain.Person;
 import com.example.api.data.PersonRepository;
+import com.example.domain.Person;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
